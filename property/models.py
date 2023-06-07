@@ -62,6 +62,9 @@ class Owner(models.Model):
     owners_phonenumber = models.CharField('Номер владельца', max_length=20)
     owned_apartments = models.ManyToManyField(Flat, related_name='owned_apartments', verbose_name='Квартиры в собственности')
 
+    def __str__(self):
+        return self.owner
+
 
 class Complaint(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Кто пожаловался')
