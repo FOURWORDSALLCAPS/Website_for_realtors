@@ -30,6 +30,8 @@ INSTALLED_APPS = [
     'property.apps.PropertyConfig',
 ]
 
+PHONENUMBER_DEFAULT_REGION = 'RU'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
