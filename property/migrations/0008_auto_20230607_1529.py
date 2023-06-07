@@ -24,7 +24,7 @@ def convert_owners_phone_number(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('property', 'convert_owners_phone_number'),
+        ('property', '0007_flat_owner_pure_phone'),
     ]
 
     operations = [
