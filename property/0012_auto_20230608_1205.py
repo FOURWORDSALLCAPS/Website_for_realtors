@@ -8,9 +8,9 @@ def copy_flat_to_owner(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
     for flat in Flat.objects.all():
         if flat.owner_pure_phone is not None:
-            owner, created = Owner.objects.get_or_create(owner=flat.owner, owners_phonenumber=flat.owners_phonenumber,
-                                                         owner_pure_phone=flat.owner_pure_phone)
-            owner.owned_apartments.set([flat])
+            owner, created = Owner.objects.get_or_create(owner=flat.owner, phone_number=flat.owners_phonenumber,
+                                                         pure_phone=flat.owner_pure_phone)
+            owner.apartments.set([flat])
 
 
 class Migration(migrations.Migration):
