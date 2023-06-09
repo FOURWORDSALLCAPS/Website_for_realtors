@@ -3,13 +3,13 @@ from .models import Flat, Complaint, Owner
 
 
 class AdminInline(admin.TabularInline):
-    model = Owner.owned_apartments.through
+    model = Owner.apartments.through
     raw_id_fields = ['owner', 'flat']
 
 
 @admin.register(Flat)
 class FlatAdmin(admin.ModelAdmin):
-    search_fields = ['town', 'address', 'owned_apartments__owner']
+    search_fields = ['town', 'address', 'apartments__owner']
     readonly_fields = ['created_at']
     list_display = ['address', 'price', 'new_building', 'construction_year', 'town']
     list_editable = ['new_building']
