@@ -5,12 +5,8 @@ from property.models import Flat
 
 
 def automatically_fill_new_building(apps, schema_editor):
-    for flat in Flat.objects.all():
-        if flat.construction_year and flat.construction_year >= 2015:
-            flat_new_building = True
-        else:
-            flat_new_building = False
-        Flat.objects.filter(id=flat.id).update(new_building=flat_new_building)
+    Flat.objects.filter(construction_year__gte=2015).update(new_building=True)
+    Flat.objects.exclude(construction_year__gte=2015).update(new_building=False)
 
 
 class Migration(migrations.Migration):
