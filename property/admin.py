@@ -20,9 +20,9 @@ class FlatAdmin(admin.ModelAdmin):
 
 @admin.register(Complaint)
 class ComplaintAdmin(admin.ModelAdmin):
-    raw_id_fields = ['user_complaints', 'flat_complaints']
+    raw_id_fields = ['users', 'flats']
 
 
 @admin.register(Owner)
 class OwnerAdmin(admin.ModelAdmin):
-    raw_id_fields = ['apartments']
+    raw_id_fields = ['owners']
